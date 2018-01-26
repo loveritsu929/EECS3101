@@ -85,6 +85,8 @@ public class asg2 {
 		System.out.println("Prize(14) is  " + asg2.Prize(14));
 		System.out.println("Prize(15) is  " + asg2.Prize(15));
 		System.out.println("Prize(16) is  " + asg2.Prize(16));
+		System.out.println("Prize(17) is  " + asg2.Prize(17));
+		System.out.println("Prize(18) is  " + asg2.Prize(18));
 		System.out.println("stop");
 	}
 
