@@ -66,7 +66,22 @@ public class A4 {
     	int n = A.size();
     	BigInteger case_one_size =BigInteger.valueOf(n-1).multiply(D(n-2));
     	BigInteger case_two_size =BigInteger.valueOf(n-1).multiply(D(n-1));
-    			
+    	BigInteger group_size = D(n-2).add(D(n-1)); // size of each group of case1&2 for a particular i
+    	BigInteger group_number = k.mod(group_size).equals(BigInteger.ZERO) ? k.divide(group_size) : k.divide(group_size).add(BigInteger.ONE); // index of a group
+    	BigInteger index_in_group = k.mod(group_size).equals(BigInteger.ZERO) ? group_size :  k.mod(group_size);  // index of kth assignment in a group; [0+1, group_size - 1 + 1]
+    	
+    	int caseNum = 1;
+    	BigInteger index_in_case = new BigInteger("0");
+    	if(index_in_group.compareTo(D(n-2)) == -1 || index_in_group.compareTo(D(n-2)) == 0){
+    		caseNum = 1;
+    		index_in_case = index_in_group.abs();
+    	
+    	}
+    	else{
+    		caseNum = 2;
+    		index_in_case = index_in_group.subtract(D(n-2)); // index_in_case2 = index_in_group - sizeOf(case1)
+    	}
+    	
     	Vector<Integer> target = new Vector<Integer>();
     	
     	if(n==1){
@@ -79,15 +94,14 @@ public class A4 {
     	}
     	else{// n>2
     		
-    		if(k.compareTo( case_one_size) == -1 || 
-    				k.compareTo( case_one_size) == 0)
-    		{ // k <= (n-1) * D(n-2) : Case1
+    		if(caseNum == 1)
+    		{ 
     			
     			
     			
     			
     		}
-    		else{ //Case2
+    		else{ // caseNum ==2
     			
     			
     			
